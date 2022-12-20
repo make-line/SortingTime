@@ -7,7 +7,6 @@ import org.example.chart.Chart;
 import org.example.time.Sort;
 import org.example.time.SortUtils;
 
-
 import javax.swing.*;
 import java.util.*;
 
@@ -35,8 +34,8 @@ public class Main {
             String[] result;
             switch (menuNum) {
                 case 1 -> {
-                    Sort[] sorts = new Sort[] {new BubbleSort(), new QuickSort(), new InsertionSort(), new SelectionSort(), new HeapSort()};
-                    for (int i = 0; i < sorts.length; i++){
+                    Sort[] sorts = new Sort[]{new BubbleSort(), new QuickSort(), new InsertionSort(), new SelectionSort(), new HeapSort()};
+                    for (int i = 0; i < sorts.length; i++) {
                         generate.randomNum("src/main/java/org/example/files/not_sorted.txt", n[i]);
                         initialArray = work.readInt("src/main/java/org/example/files/not_sorted.txt");
                         SortUtils.getSortTime(sorts[i], initialArray);
@@ -58,7 +57,7 @@ public class Main {
                         System.out.println("Выполните рассчеты!");
                     } else {
                         String[] emptyFile = work.readString("src/main/java/org/example/files/result.txt");
-                        if (Objects.equals(emptyFile[0], "")){
+                        if (Objects.equals(emptyFile[0], "")) {
                             work.write("n BS QS IS SS HS \n", "src/main/java/org/example/files/result.txt");
                             for (int i = 0; i < 11; i++) {
                                 work.write(n[i] + " " + sortTimeArray[i][0] +
@@ -82,12 +81,12 @@ public class Main {
                 }
                 case 3 -> {
                     result = work.readString("src/main/java/org/example/files/result.txt");
-                    if (Objects.equals(result[0], "")){
+                    if (Objects.equals(result[0], "")) {
                         System.out.println("Файл пуст!");
                     } else {
                         System.out.println("__________________________________________");
                         System.out.print("|   " + result[0] + "  ");
-                        for (int i = 1; i < 6; i++){
+                        for (int i = 1; i < 6; i++) {
                             System.out.print("|  " + result[i] + "  ");
                             if (i % 6 == 5) {
                                 System.out.print("|\n");
@@ -95,13 +94,13 @@ public class Main {
                             }
                         }
                         for (int i = 6; i < result.length; i++) {
-                            if (Integer.parseInt(result[i]) / 10 == 0){
+                            if (Integer.parseInt(result[i]) / 10 == 0) {
                                 System.out.print("|   " + result[i] + "  ");
-                            } else if (Integer.parseInt(result[i]) / 100 == 0){
+                            } else if (Integer.parseInt(result[i]) / 100 == 0) {
                                 System.out.print("|  " + result[i] + "  ");
-                            } else if (Integer.parseInt(result[i]) / 1000 == 0){
+                            } else if (Integer.parseInt(result[i]) / 1000 == 0) {
                                 System.out.print("| " + result[i] + "  ");
-                            } else if (Integer.parseInt(result[i]) / 10000 == 0){
+                            } else if (Integer.parseInt(result[i]) / 10000 == 0) {
                                 System.out.print("| " + result[i] + " ");
                             }
                             if (i % 6 == 5) {
@@ -109,10 +108,10 @@ public class Main {
                                 System.out.println("__________________________________________");
                             }
                         }
-                        try{
+                        try {
                             Thread.sleep(5000);
+                        } catch (InterruptedException ignored) {
                         }
-                        catch (InterruptedException ignored){}
                         System.out.print("\n");
                     }
                 }
@@ -120,8 +119,8 @@ public class Main {
                     String[] calc = work.readString("src/main/java/org/example/files/bin.txt");
                     int j = 0, i = 0, n = 0;
                     long[][] calcResults = new long[11][5];
-                    while (n < 55){
-                        while (j < 5){
+                    while (n < 55) {
+                        while (j < 5) {
                             calcResults[i][j] = Long.parseLong(calc[n]);
                             j++;
                             n++;

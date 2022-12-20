@@ -16,8 +16,8 @@ import java.awt.*;
 
 public class Chart {
     static final int[] n = new int[]{50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
-    public static JFreeChart createChart(CategoryDataset dataset)
-    {
+
+    public static JFreeChart createChart(CategoryDataset dataset) {
         JFreeChart chart = ChartFactory.createBarChart(
                 "Сортировки",
                 "Значения n",                   // x-axis label
@@ -36,8 +36,7 @@ public class Chart {
         return chart;
     }
 
-    public static JPanel createDemoPanel(long[][] arr)
-    {
+    public static JPanel createDemoPanel(long[][] arr) {
         JFreeChart chart = createChart(createDataset(arr));
         chart.setPadding(new RectangleInsets(4, 8, 5, 2));
         ChartPanel panel = new ChartPanel(chart);
@@ -47,11 +46,10 @@ public class Chart {
         return panel;
     }
 
-    public static CategoryDataset createDataset(long[][] arr)
-    {
+    public static CategoryDataset createDataset(long[][] arr) {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        for (int i=0; i<arr.length;i++)
-            for (int j=0;j<arr[i].length;j+=2) {
+        for (int i = 0; i < arr.length; i++)
+            for (int j = 0; j < arr[i].length; j += 2) {
                 dataset.addValue(arr[i][j], "BubbleSort", Integer.toString(n[i]));
                 dataset.addValue(arr[i][++j], "QuickSort", Integer.toString(n[i]));
                 dataset.addValue(arr[i][++j], "InsertionSort", Integer.toString(n[i]));

@@ -25,7 +25,7 @@ public class FileWork {
         return numArray;
     }
 
-    public String[] readString(String path){
+    public String[] readString(String path) {
         StringBuilder str = new StringBuilder();
 
         try {
